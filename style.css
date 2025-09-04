@@ -61,6 +61,8 @@ body {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero h1 span {
@@ -74,6 +76,8 @@ body {
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
+  position: relative;
+  z-index: 2;
 }
 
 /* Profile Images in Hero */
@@ -93,6 +97,7 @@ body {
   border: 4px solid #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .profile-images img:hover {
@@ -100,6 +105,44 @@ body {
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
+/* Spin animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Lightbox Fullscreen View */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out; /* show close action */
+}
+
+.lightbox img {
+  max-width: 95vw;   /* allow almost full width */
+  max-height: 95vh;  /* allow almost full height */
+  width: auto;
+  height: auto;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+
+/* Zoom animation for lightbox */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
 
 /* Sections */
 section {
