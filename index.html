@@ -6,6 +6,17 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+function openLightbox(img) {
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
 <body>
   <!-- Navbar -->
   <header>
@@ -30,12 +41,17 @@
 
     <!-- Profile Images -->
     <div class="profile-images">
-      <img src="hr2.png" alt="Profile 1">
-      <img src="hr22.png" alt="Profile 2">
-      <img src="hn33.png" alt="Profile 3">
-      <img src="hn22.png" alt="Profile 4">
+      <img src="hr2.png" alt="Profile 1" onclick="openLightbox(this)">
+      <img src="hr22.png" alt="Profile 2" onclick="openLightbox(this)">
+      <img src="hn33.png" alt="Profile 3" onclick="openLightbox(this)">
+      <img src="hn22.png" alt="Profile 4" onclick="openLightbox(this)">
     </div>
   </section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Full View">
+</div>
 
 
   <!-- About Section -->
